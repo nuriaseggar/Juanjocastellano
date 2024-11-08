@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Juanjo Castellano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Menú superior y selector de idioma -->
+    <div class="navbar">
+        <a href="index.html">About</a>
+        <a href="galeria.html">Music Covers</a>
+        <a href="galeria2.html">Paleoart Illustrations</a>
+		<a href="galeria3.html">Other Works</a>
+        <a href="contacto.html">Contact</a>
+    </div>
+
+    <div class="language-selector">
+        <button onclick="changeDescriptionLanguage('es')">Español</button>
+        <button onclick="changeDescriptionLanguage('en')">English</button>
+        <button onclick="changeDescriptionLanguage('fr')">Français</button>
+        <button onclick="changeDescriptionLanguage('de')">Deutsch</button>
+    </div>
+
+    <!-- Campo de búsqueda con botón -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Buscar por título o descripción...">
+        <button onclick="searchAndOpenModal()">Buscar</button>
+    </div>
+
+    <!-- Título y texto de introducción -->
+    <h2 class="section-title">Other Works</h2>
+    <div class="intro-section">
+        <p id="description-text" class="justify-text">
+            En esta página puedes explorar una selección de mis trabajos más representativos de los últimos años, realizados para bandas de culto que han confiado en mi estilo. Haz clic en las imágenes para ampliarlas y ver más detalles.
+        </p>
+    </div>
+
+    <!-- Galería de imágenes -->
+    <div class="gallery" id="gallery">
+        <img data-page="1" src="imagen1.jpg" alt="Imagen de ejemplo 1" data-description="Título: Imagen 1, Ubicación: Quito, Fecha: Noviembre 2024" onclick="openModal(this, 'Título: Imagen 1\nUbicación: Quito\nFecha: Noviembre 2024')">
+        <img data-page="1" src="imagen2.jpg" alt="Imagen de ejemplo 2" data-description="Título: Imagen 2, Ubicación: Guayaquil, Fecha: Octubre 2024" onclick="openModal(this, 'Título: Imagen 2\nUbicación: Guayaquil\nFecha: Octubre 2024')">
+    <img data-page="1" src="imagen3.jpg" alt="Imagen 3" onclick="openModal(this, 'Título: Imagen 3\nUbicación: Cuenca\nFecha: Septiembre 2024')">
+    <img data-page="1" src="imagen4.jpg" alt="Imagen 4" onclick="openModal(this, 'Título: Imagen 4\nUbicación: Loja\nFecha: Agosto 2024')">
+    <img data-page="1" src="imagen5.jpg" alt="Imagen 5" onclick="openModal(this, 'Título: Imagen 5\nUbicación: Machala\nFecha: Julio 2024')">
+    <img data-page="1" src="imagen6.jpg" alt="Imagen 6" onclick="openModal(this, 'Título: Imagen 6\nUbicación: Manta\nFecha: Junio 2024')">
+    <img data-page="1" src="imagen7.jpg" alt="Imagen 7" onclick="openModal(this, 'Título: Imagen 7\nUbicación: Esmeraldas\nFecha: Mayo 2024')">
+    <img data-page="1" src="imagen8.jpg" alt="Imagen 8" onclick="openModal(this, 'Título: Imagen 8\nUbicación: Ibarra\nFecha: Abril 2024')">
+    <img data-page="1" src="imagen9.jpg" alt="Imagen 9" onclick="openModal(this, 'Título: Imagen 9\nUbicación: Ambato\nFecha: Marzo 2024')">
+    <img data-page="1" src="imagen10.jpg" alt="Imagen 10" onclick="openModal(this, 'Título: Imagen 10\nUbicación: Riobamba\nFecha: Febrero 2024')">
+    <img data-page="1" src="imagen11.jpg" alt="Imagen 11" onclick="openModal(this, 'Título: Imagen 11\nUbicación: Latacunga\nFecha: Enero 2024')">
+    <img data-page="1" src="imagen12.jpg" alt="Imagen 12" onclick="openModal(this, 'Título: Imagen 12\nUbicación: Tulcán\nFecha: Diciembre 2023')">
+    <img data-page="1" src="imagen13.jpg" alt="Imagen 13" onclick="openModal(this, 'Título: Imagen 13\nUbicación: Santa Elena\nFecha: Noviembre 2023')">
+    <img data-page="1" src="imagen14.jpg" alt="Imagen 14" onclick="openModal(this, 'Título: Imagen 14\nUbicación: Santo Domingo\nFecha: Octubre 2023')">
+    <img data-page="1" src="imagen15.jpg" alt="Imagen 15" onclick="openModal(this, 'Título: Imagen 15\nUbicación: Quevedo\nFecha: Septiembre 2023')">
+    <img data-page="1" src="imagen16.jpg" alt="Imagen 16" onclick="openModal(this, 'Título: Imagen 16\nUbicación: Babahoyo\nFecha: Agosto 2023')">
+    <img data-page="1" src="imagen17.jpg" alt="Imagen 17" onclick="openModal(this, 'Título: Imagen 17\nUbicación: Puyo\nFecha: Julio 2023')">
+    <img data-page="1" src="imagen18.jpg" alt="Imagen 18" onclick="openModal(this, 'Título: Imagen 18\nUbicación: Nueva Loja\nFecha: Junio 2023')">
+    <img data-page="1" src="imagen19.jpg" alt="Imagen 19" onclick="openModal(this, 'Título: Imagen 19\nUbicación: Zamora\nFecha: Mayo 2023')">
+    <img data-page="1" src="imagen20.jpg" alt="Imagen 20" onclick="openModal(this, 'Título: Imagen 20\nUbicación: Macas\nFecha: Abril 2023')">
+        <!-- Añade hasta 20 imágenes con data-page="1" -->
+
+        <!-- Página 2 -->
+            <img data-page="2" src="imagen21.jpg" alt="Imagen 21" onclick="openModal(this, 'Título: Imagen 21\nUbicación: Loja\nFecha: Agosto 2024')">
+    <img data-page="2" src="imagen22.jpg" alt="Imagen 22" onclick="openModal(this, 'Título: Imagen 22\nUbicación: Machala\nFecha: Julio 2024')">
+    <img data-page="2" src="imagen23.jpg" alt="Imagen 23" onclick="openModal(this, 'Título: Imagen 23\nUbicación: Puyo\nFecha: Junio 2024')">
+    <img data-page="2" src="imagen24.jpg" alt="Imagen 24" onclick="openModal(this, 'Título: Imagen 24\nUbicación: Quevedo\nFecha: Mayo 2024')">
+    <img data-page="2" src="imagen25.jpg" alt="Imagen 25" onclick="openModal(this, 'Título: Imagen 25\nUbicación: Ambato\nFecha: Abril 2024')">
+    <img data-page="2" src="imagen26.jpg" alt="Imagen 26" onclick="openModal(this, 'Título: Imagen 26\nUbicación: Riobamba\nFecha: Marzo 2024')">
+    <img data-page="2" src="imagen27.jpg" alt="Imagen 27" onclick="openModal(this, 'Título: Imagen 27\nUbicación: Cuenca\nFecha: Febrero 2024')">
+    <img data-page="2" src="imagen28.jpg" alt="Imagen 28" onclick="openModal(this, 'Título: Imagen 28\nUbicación: Santa Elena\nFecha: Enero 2024')">
+    <img data-page="2" src="imagen29.jpg" alt="Imagen 29" onclick="openModal(this, 'Título: Imagen 29\nUbicación: Zamora\nFecha: Diciembre 2023')">
+    <img data-page="2" src="imagen30.jpg" alt="Imagen 30" onclick="openModal(this, 'Título: Imagen 30\nUbicación: Ibarra\nFecha: Noviembre 2023')">
+    <img data-page="2" src="imagen31.jpg" alt="Imagen 31" onclick="openModal(this, 'Título: Imagen 31\nUbicación: Santo Domingo\nFecha: Octubre 2023')">
+    <img data-page="2" src="imagen32.jpg" alt="Imagen 32" onclick="openModal(this, 'Título: Imagen 32\nUbicación: Babahoyo\nFecha: Septiembre 2023')">
+    <img data-page="2" src="imagen33.jpg" alt="Imagen 33" onclick="openModal(this, 'Título: Imagen 33\nUbicación: Nueva Loja\nFecha: Agosto 2023')">
+    <img data-page="2" src="imagen34.jpg" alt="Imagen 34" onclick="openModal(this, 'Título: Imagen 34\nUbicación: Quito\nFecha: Julio 2023')">
+    <img data-page="2" src="imagen35.jpg" alt="Imagen 35" onclick="openModal(this, 'Título: Imagen 35\nUbicación: Guayaquil\nFecha: Junio 2023')">
+    <img data-page="2" src="imagen36.jpg" alt="Imagen 36" onclick="openModal(this, 'Título: Imagen 36\nUbicación: Manta\nFecha: Mayo 2023')">
+    <img data-page="2" src="imagen37.jpg" alt="Imagen 37" onclick="openModal(this, 'Título: Imagen 37\nUbicación: Tulcán\nFecha: Abril 2023')">
+    <img data-page="2" src="imagen38.jpg" alt="Imagen 38" onclick="openModal(this, 'Título: Imagen 38\nUbicación: Latacunga\nFecha: Marzo 2023')">
+    <img data-page="2" src="imagen39.jpg" alt="Imagen 39" onclick="openModal(this, 'Título: Imagen 39\nUbicación: Macas\nFecha: Febrero 2023')">
+    <img data-page="2" src="imagen40.jpg" alt="Imagen 40" onclick="openModal(this, 'Título: Imagen 40\nUbicación: Portoviejo\nFecha: Enero 2023')">
+        <!-- Añade hasta 20 imágenes con data-page="2" -->
+
+        <!-- Página 3 -->
+        <img data-page="3" src="imagen41.jpg" alt="Imagen 41" onclick="openModal(this, 'Título: Imagen 41\nUbicación: Esmeraldas\nFecha: Mayo 2024')">
+        <img data-page="3" src="imagen42.jpg" alt="Imagen 42" onclick="openModal(this, 'Título: Imagen 42\nUbicación: Ibarra\nFecha: Abril 2024')">
+        <!-- Añade hasta 20 imágenes con data-page="3" -->
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Imagen ampliada">
+            <div class="description">
+                <p class="bold-field">Título:</p>
+                <p class="text-field" id="modalTitle"></p>
+                <p class="bold-field">Ubicación:</p>
+                <p class="text-field" id="modalLocation"></p>
+                <p class="bold-field">Fecha:</p>
+                <p class="text-field" id="modalDate"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <ul class="pagination">
+        <li onclick="showPage(1)">1</li>
+        <li onclick="showPage(2)">2</li>
+        <li onclick="showPage(3)">3</li>
+    </ul>
+
+    <div class="footer">
+        <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Filtrar imágenes basadas en la búsqueda
+        function filterImages() {
+            const input = document.getElementById("search-input").value.toLowerCase();
+            const allImages = document.querySelectorAll(".gallery img");
+
+            allImages.forEach(img => {
+                const title = img.alt.toLowerCase(); // Usar el alt como título
+                img.style.display = title.includes(input) ? "block" : "none";
+            });
+
+            // Mostrar la primera página después de filtrar
+            showPage(1);
+        }
+    </script>
+</body>
+</html>
