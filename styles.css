@@ -1,0 +1,245 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Menú superior */
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover, .navbar .activo {
+    background-color: #555;
+}
+
+/* Selector de idioma */
+.language-selector {
+    text-align: right;
+    margin: 10px;
+}
+
+.language-selector button {
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.language-selector button:hover {
+    background-color: #555;
+}
+
+/* Título de la sección */
+.section-title {
+    background-color: #f4f4f4;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+/* Contenido principal */
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.texto {
+    text-align: justify;
+    max-width: 700px;
+    margin: 0 auto;
+}
+#description-text {
+    text-align: justify;
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+}
+
+.foto-perfil {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Ocultar contenido en otros idiomas */
+.hidden {
+    display: none;
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #666;
+    background-color: #f4f4f4;
+}
+
+/* Estilo de galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.gallery img {
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: #ffffff;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    border-color: #333;
+}
+
+/* Modal para mostrar imagen ampliada */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-content img {
+    width: 75%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+}
+
+.description {
+    width: 25%;
+    padding: 20px;
+    color: #333;
+    background-color: #ffffff;
+    overflow-y: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description .bold-field {
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+}
+
+.description .text-field {
+    font-weight: normal;
+    color: #333;
+    margin-top: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Paginación de la galería */
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 10px;
+}
+
+.pagination li {
+    padding: 8px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.pagination li:hover, .pagination .active {
+    background-color: #555;
+}
+/* Estilo del buscador */
+.search-container {
+    text-align: center;
+    margin: 20px;
+}
+
+#search-input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  /* Estilos para el banner */
+        .banner-image {
+            width: 100%;
+            max-height: 200px; /* Altura máxima para que no ocupe mucho espacio */
+            object-fit: cover; /* Para ajustar la imagen al ancho sin distorsión */
+            margin-bottom: 20px;
+            opacity: 0.85; /* Ligera transparencia para integrarse mejor */
+        }
+    </style>
