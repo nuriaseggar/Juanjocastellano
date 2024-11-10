@@ -75,6 +75,13 @@ body {
     max-width: 700px;
     margin: 0 auto;
 }
+@media (max-width: 768px) {
+    .texto {
+        text-align: justify;
+        max-width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+        margin: 0 auto;
+    }
+}
 #description-text {
     text-align: justify;
     max-width: 800px;
