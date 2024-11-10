@@ -178,6 +178,14 @@ body {
     align-items: center;
     justify-content: center;
 }
+/* Estilos responsivos para la imagen */
+@media (max-width: 768px) {
+    .foto-perfil {
+        width: 100%; /* Hacer que la imagen ocupe todo el ancho disponible */
+        max-width: 300px; /* Limitar el tamaño máximo */
+        height: auto; /* Mantener la proporción */
+    }
+}
 
 .description .bold-field {
     font-weight: bold;
