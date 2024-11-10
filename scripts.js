@@ -35,28 +35,58 @@ function showPage(pageNumber) {
 }
 
 // Mostrar modal con la imagen seleccionada
-function openModal(imgElement, description) {
-    const modal = document.getElementById("modal");
-    const modalImage = document.getElementById("modalImage");
-    modal.style.display = "flex";
-    modalImage.src = imgElement.src;
+let currentImageIndex = 0;
+function openModal(image) {
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal-content img');
+    const descriptionBox = document.querySelector('.description');
+    const images = document.querySelectorAll('.gallery img');
 
-    const [title, location, date] = description.split('\n').map(text => text.split(': ')[1]);
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalLocation").textContent = location;
-    document.getElementById("modalDate").textContent = date;
+    // Determina el índice actual de la imagen seleccionada
+    currentImageIndex = Array.from(images).indexOf(image);
+
+    modalImg.src = image.src;
+    descriptionBox.innerText = image.getAttribute('data-description') || '';
+
+    // Si no hay descripción, ajusta la imagen para pantalla completa
+    if (!image.getAttribute('data-description')) {
+        modalImg.classList.add('fullscreen');
+    } else {
+        modalImg.classList.remove('fullscreen');
+    }
+
+    modal.style.display = 'flex';
+}
+
+// Navegar entre imágenes en el modal
+function navigateImage(step) {
+    const images = document.querySelectorAll('.gallery img');
+    currentImageIndex = (currentImageIndex + step + images.length) % images.length;
+
+    const nextImage = images[currentImageIndex];
+    const modalImg = document.querySelector('.modal-content img');
+    const descriptionBox = document.querySelector('.description');
+
+    modalImg.src = nextImage.src;
+    descriptionBox.innerText = nextImage.getAttribute('data-description') || '';
+
+    // Ajusta el modo de pantalla completa según la descripción
+    if (!nextImage.getAttribute('data-description')) {
+        modalImg.classList.add('fullscreen');
+    } else {
+        modalImg.classList.remove('fullscreen');
+    }
 }
 
 // Cerrar modal
 function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    document.querySelector('.modal').style.display = 'none';
 }
 
 // Inicializar primera página en la galería al cargar
 document.addEventListener("DOMContentLoaded", () => showPage(1));
+
 // Filtrar imágenes según la palabra clave en el campo de búsqueda
-
-
 function filterImages() {
     const query = document.getElementById('search-bar').value.toLowerCase();
     const images = document.querySelectorAll('.gallery img');
@@ -68,8 +98,7 @@ function filterImages() {
     });
 }
 
-
-// Filtrar imágenes según la palabra clave en el campo de búsqueda y abrir la primera coincidencia
+// Filtrar imágenes y abrir la primera coincidencia en el modal
 function searchAndOpenModal(event) {
     if (event.key === "Enter") {
         const query = document.getElementById('search-bar').value.toLowerCase();
@@ -80,8 +109,7 @@ function searchAndOpenModal(event) {
         images.forEach(img => {
             const description = img.getAttribute('data-description').toLowerCase();
             if (!found && description.includes(query)) {
-                // Abrir modal con la primera coincidencia
-                openModal(img, img.getAttribute('data-description').replace(/, /g, '\n'));
+                openModal(img);
                 found = true; // Marcar como encontrado para detener la búsqueda en la primera coincidencia
             }
         });
@@ -91,22 +119,4 @@ function searchAndOpenModal(event) {
             alert("No se encontraron coincidencias.");
         }
     }
-}
-
-// Mostrar modal con la imagen seleccionada
-function openModal(imgElement, description) {
-    const modal = document.getElementById("modal");
-    const modalImage = document.getElementById("modalImage");
-    modal.style.display = "flex";
-    modalImage.src = imgElement.src;
-
-    const [title, location, date] = description.split('\n').map(text => text.split(': ')[1]);
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalLocation").textContent = location;
-    document.getElementById("modalDate").textContent = date;
-}
-
-// Cerrar modal
-function closeModal() {
-    document.getElementById("modal").style.display = "none";
 }

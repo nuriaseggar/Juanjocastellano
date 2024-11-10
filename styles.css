@@ -75,25 +75,35 @@ body {
     max-width: 700px;
     margin: 0 auto;
 }
+
 @media (max-width: 768px) {
     .texto {
-        text-align: justify;
         max-width: 90%; /* Ajusta el ancho para pantallas pequeñas */
         margin: 0 auto;
     }
 }
-#description-text {
-    text-align: justify;
-    max-width: 800px;
-    margin: auto;
-    padding: 10px;
-}
 
+/* Estilos responsivos para la imagen */
 .foto-perfil {
     width: 200px;
     height: auto;
     border-radius: 50%;
     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .foto-perfil {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Texto de descripción */
+#description-text {
+    text-align: justify;
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
 }
 
 /* Ocultar contenido en otros idiomas */
@@ -166,6 +176,7 @@ body {
     background-color: #000;
 }
 
+/* Descripción del modal */
 .description {
     width: 25%;
     padding: 20px;
@@ -178,14 +189,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-/* Estilos responsivos para la imagen */
-@media (max-width: 768px) {
-    .foto-perfil {
-        width: 100%; /* Hacer que la imagen ocupe todo el ancho disponible */
-        max-width: 300px; /* Limitar el tamaño máximo */
-        height: auto; /* Mantener la proporción */
-    }
-}
 
 .description .bold-field {
     font-weight: bold;
@@ -194,7 +197,6 @@ body {
 }
 
 .description .text-field {
-    font-weight: normal;
     color: #333;
     margin-top: 5px;
 }
@@ -235,6 +237,7 @@ body {
 .pagination li:hover, .pagination .active {
     background-color: #555;
 }
+
 /* Estilo del buscador */
 .search-container {
     text-align: center;
@@ -249,12 +252,43 @@ body {
     border-radius: 5px;
     font-size: 16px;
 }
-  /* Estilos para el banner */
-        .banner-image {
-            width: 100%;
-            max-height: 200px; /* Altura máxima para que no ocupe mucho espacio */
-            object-fit: cover; /* Para ajustar la imagen al ancho sin distorsión */
-            margin-bottom: 20px;
-            opacity: 0.85; /* Ligera transparencia para integrarse mejor */
-        }
-    </style>
+
+/* Estilos para el banner */
+.banner-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    opacity: 0.85;
+}
+
+/* Clase para imágenes a pantalla completa */
+.fullscreen img {
+    width: 100%;
+    height: auto;
+}
+/* Botones de navegación en el modal */
+.modal .prev, .modal .next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px; /* Tamaño del icono */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 20px; /* Espaciado alrededor del icono */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+}
+
+.modal .prev:hover, .modal .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal .prev {
+    left: 10px; /* Ajuste de posición izquierda */
+}
+
+.modal .next {
+    right: 10px; /* Ajuste de posición derecha */
+}
