@@ -120,3 +120,4 @@ function searchAndOpenModal(event) {
         }
     }
 }
+
