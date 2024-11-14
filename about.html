@@ -34,29 +34,38 @@
     </div>
 	
 	<!-- Menú sándwich -->
-    <div class="menu" onclick="toggleMenu()">☰</div>
-    <div class="menu-options" id="menuOptions">
-        <a href="about.html">About</a>
-        <a href="galeria.html">Album Covers</a>
-        <a href="contacto.html">Contact</a>
-    </div>
+<div class="menu" onclick="toggleMenu()">☰</div>
+<div class="menu-options" id="menuOptions">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="galeria.html">Album Covers</a>
+    <a href="contacto.html">Contact</a>
+</div>
+
 
     <!-- Selector de idioma -->
-    <div class="language-selector">
-        <button onclick="changeLanguage('es')">Español</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('fr')">Français</button>
-        <button onclick="changeLanguage('de')">Deutsch</button>
-    </div>
-
+   
     <!-- Encabezado principal de la página -->
+	 
     <h2 class="section-title">About</h2><div class="contenido">
   <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil">
 
     <!-- Contenedores de contenido por idioma -->
     <!-- Contenido en Español -->
-   <!-- Contenido en Español -->  
+
+
+    <!-- Selector de idioma arriba del texto -->
+
+
+
         <div id="content-es" class="texto">
+		
+		    <div class="language-selector">
+        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+    </div>
             <p>Hola, soy <strong>Juanjo Castellano</strong>, un artista gráfico profesional con base en España. Mi trabajo es en su mayoría de iniciativa propia, donde me enfoco en capturar ideas, sentimientos y atmósferas oscuras, permitiéndome viajar a mundos imaginarios.</p>
             <p>Mis influencias provienen de artistas como Dan Seagrave, Douglas Henderson, John Sibbik y Mark Hallet, así como de autores de terror clásico como Tobe Hooper, H.P. Lovecraft, Clive Barker y Stephen King, y de películas icónicas como 'Alien', 'Salem's Lot' y la trilogía de 'El Señor de los Anillos'. Sin duda, el personaje Kurt Barlow de 'Salem's Lot' es la piedra angular de todas mis pesadillas y motivaciones.</p>
             <p>Trabajo en la creación de portadas de libros, ilustraciones, arte conceptual y diseño de merchandising. Si necesitas una obra que capture la esencia de lo místico y oscuro, no dudes en contactarme.</p>
@@ -64,12 +73,24 @@
 
         <!-- Contenido en Inglés (oculto inicialmente) -->
         <div id="content-en" class="texto hidden">
+		    <div class="language-selector">
+        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+    </div>
             <p>Hello, I’m <strong>Juanjo Castellano</strong>, a professional graphic artist based in Spain. My work is mostly self-initiated, focusing on capturing ideas, emotions, and dark atmospheres, allowing me to journey to imaginary worlds.</p>
             <p>My influences include artists like Dan Seagrave, Douglas Henderson, John Sibbik, and Mark Hallet, and classic horror authors such as Tobe Hooper, H.P. Lovecraft, Clive Barker, and Stephen King, along with iconic movies like 'Alien', 'Salem's Lot', and the 'Lord of the Rings' trilogy.</p>
             <p>I specialize in creating book covers, illustrations, conceptual art, and merchandising designs. If you need a piece that captures the essence of mysticism and darkness, feel free to contact me.</p>
         </div>
   <!-- Contenido en Francés -->
         <div id="content-fr" class="texto hidden">
+		    <div class="language-selector">
+        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+    </div>
             <p>Bonjour, je suis Juanjo Castellano, un artiste graphique professionnel basé en Espagne. La majorité de mon travail est initiée par moi-même, axée sur la capture d'idées, d'émotions et d'ambiances sombres, me permettant de voyager dans des mondes imaginaires.</p>
             <p>Mes inspirations proviennent d'auteurs classiques de l'horreur tels que H.P. Lovecraft, Clive Barker et Stephen King, ainsi que de films emblématiques tels que "Alien", "Hellraiser" et la trilogie du "Seigneur des Anneaux".</p>
             <p>Je me spécialise dans la création de couvertures de livres, d'illustrations, d'art conceptuel et de designs de merchandising. Si vous avez besoin d'une œuvre qui capture l'essence du mysticisme et de l'obscurité, n'hésitez pas à me contacter.</p>
@@ -77,6 +98,12 @@
 
         <!-- Contenido en Alemán -->
         <div id="content-de" class="texto hidden">
+		    <div class="language-selector">
+        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+    </div>
             <p>Hallo, ich bin Juanjo Castellano, ein professioneller Grafikdesigner aus Spanien. Ein Großteil meiner Arbeit ist eigenständig initiiert und konzentriert sich darauf, Ideen, Emotionen und dunkle Atmosphären einzufangen, die mich auf Reisen in imaginäre Welten führen.</p>
             <p>Meine Inspirationen stammen von klassischen Horrorschriftstellern wie H.P. Lovecraft, Clive Barker und Stephen King sowie von ikonischen Filmen wie "Alien", "Hellraiser" und der "Der Herr der Ringe"-Trilogie.</p>
             <p>Ich spezialisiere mich auf die Erstellung von Buchcovern, Illustrationen, Konzeptkunst und Merchandising-Designs. Wenn Sie ein Werk benötigen, das die Essenz von Mystik und Dunkelheit einfängt, kontaktieren Sie mich gerne.</p>

@@ -196,3 +196,18 @@ document.addEventListener("DOMContentLoaded", function() {
             const menuOptions = document.getElementById("menuOptions");
             menuOptions.style.display = menuOptions.style.display === "block" ? "none" : "block";
         }
+		
+		// Función para alternar el menú sándwich
+function toggleMenu() {
+    const menuOptions = document.getElementById("menuOptions");
+    menuOptions.classList.toggle("show");
+}
+
+// Cerrar el menú si se hace clic fuera de él
+document.addEventListener("click", function(event) {
+    const menu = document.querySelector(".menu");
+    const menuOptions = document.getElementById("menuOptions");
+    if (event.target !== menu && !menuOptions.contains(event.target)) {
+        menuOptions.classList.remove("show");
+    }
+});
