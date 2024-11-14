@@ -190,3 +190,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const menuOptions = document.getElementById('menuOptions');
             menuOptions.style.display = menuOptions.style.display === 'block' ? 'none' : 'block';
         }
+		
+		  // Función para mostrar u ocultar el menú
+        function toggleMenu() {
+            const menuOptions = document.getElementById("menuOptions");
+            menuOptions.style.display = menuOptions.style.display === "block" ? "none" : "block";
+        }
