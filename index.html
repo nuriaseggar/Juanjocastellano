@@ -3,68 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce a Juanjo Castellano, un artista gráfico especializado en atmósferas oscuras y místicas.">
-    <meta name="keywords" content="Juanjo Castellano, artista gráfico, ilustraciones, terror, portadas de libros">
-    <title>About - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Mover estilos a un archivo CSS -->
+	    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="alternate" hreflang="es" href="https://juanjocastellano.com/about.html" />
+    <link rel="alternate" hreflang="en" href="https://juanjocastellano.com/about.html" />
+    <link rel="alternate" hreflang="fr" href="https://juanjocastellano.com/about.html" />
+    <link rel="alternate" hreflang="de" href="https://juanjocastellano.com/about.html" />
+	<meta name="description" lang="es" content="Juanjo Castellano, Artista e Ilustrador, arte oscuro, death metal, black metal, folk metal, metal. Encargos personalizados, arte disponible." />
+	<meta name="description" lang="en" content="Juanjo Castellano, Artist and Illustrator, dark art, death metal, black metal, folk metal, metal. Custom commissions, available art." />
+	<meta name="description" lang="fr" content="Juanjo Castellano, Artiste et Illustrateur, art sombre, death metal, black metal, folk metal, métal. Commandes personnalisées, art disponible." />
+	<meta name="description" lang="de" content="Juanjo Castellano, Künstler und Illustrator, dunkle Kunst, Death Metal, Black Metal, Folk Metal, Metal. Individuelle Aufträge, verfügbare Kunst." />
+
+	
+	
+	<meta name="keywords" content="arte death metal, portadas álbumes thrash metal, diseño gráfico música extrema, ilustraciones oscuras, portadas de metal" />
+<meta name="keywords" lang="en" content="death metal art, thrash metal album covers, extreme music graphic design, dark illustrations, metal covers, custom commissions" />
+<meta name="keywords" lang="fr" content="art death metal, couvertures d'albums thrash metal, design graphique musique extrême, illustrations sombres, couvertures de metal, commandes personnalisées" />
+<meta name="keywords" lang="de" content="Death Metal Kunst, Thrash Metal Albumcover, Grafikdesign extreme Musik, dunkle Illustrationen, Metalcover, individuelle Aufträge" />
+ <link rel="stylesheet" href="styles.css">
+    <title>Juanjo Castellano Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
-    <!-- Menú superior -->
-    <div class="navbar">
-         <a href="index.html">About</a>
-        <a href="galeria.html">Music Covers</a>
-        <!--  <a href="galeria2.html">Paleoart Illustrations</a>
-		<a href="galeria3.html">Other Works</a> -->
+    <!-- Menú sándwich -->
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <div class="menu-options" id="menuOptions">
+        <a href="about.html">About</a>
+        <a href="galeria.html">Album Covers</a>
         <a href="contacto.html">Contact</a>
     </div>
 
-    <!-- Selector de idioma -->
-    <div class="language-selector">
-        <button onclick="changeLanguage('es')">Español</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('fr')">Français</button>
-        <button onclick="changeLanguage('de')">Deutsch</button>
+    <!-- Contenedor del slider de imágenes de fondo -->
+    <div class="slider-container" id="slider">
+        <div class="slide active" style="background-image: url('imagen1.jpg');"></div>
+        <div class="slide" style="background-image: url('imagen2.jpg');"></div>
+        <div class="slide" style="background-image: url('imagen3.jpg');"></div>
+  <div class="slide" style="background-image: url('imagen4.jpg');"></div>
+    <div class="slide" style="background-image: url('imagen5.jpg');"></div>
+        <!-- Texto superpuesto -->
+        <div class="overlay-text active" id="overlayText">Juanjo Castellano Artwork</div>
+
+        <!-- Botón de acceso -->
+        <a href="about.html" class="access-link">Learn More About the Artist</a>
     </div>
 
-    <!-- Contenido principal -->
-    <h2 class="section-title">About</h2>
-    <div class="contenido">
-         <img src="https://lh5.googleusercontent.com/-_zH293ezG15dPvr7MAmQI7mrzolXnPypa_ZIl5lf3bbzlPNshoW2US-hy-P1dikEo0K1lQBfp_HFCpNN9IQcaT0FnC1rplm99MzIsr3jTNZdTbtgvGEXX04-1Wfo22FsQ=w1280" alt="Juanjo Castellano" class="foto-perfil">
-
-        <div id="content-es" class="texto">
-            <p>Hola, soy Juanjo Castellano, un artista gráfico profesional con base en España. Mi trabajo es en su mayoría de iniciativa propia, donde me enfoco en capturar ideas, sentimientos y atmósferas oscuras, permitiéndome viajar a mundos imaginarios.</p>
-            <p>Mis influencias provienen de artistas como Dan Seagrave, Douglas Henderson, John Sibbik y Mark Hallet, así como de autores de terror clásico como Tobe Hooper, H.P. Lovecraft, Clive Barker y Stephen King, y de películas icónicas como 'Alien', 'Salem's Lot' y la trilogía de 'El Señor de los Anillos'. Sin duda, el personaje Kurt Barlow de 'Salem's Lot' es la piedra angular de todas mis pesadillas y motivaciones.</p>
-            <p>Trabajo en la creación de portadas de libros, ilustraciones, arte conceptual y diseño de merchandising. Si necesitas una obra que capture la esencia de lo místico y oscuro, no dudes en contactarme.</p>
-        </div>
-
-        <!-- Contenido en Inglés -->
-        <div id="content-en" class="texto hidden">
-            <p>Hello, I’m Juanjo Castellano, a professional graphic artist based in Spain. Much of my work is self-initiated, focused on capturing ideas, emotions, and dark atmospheres, taking me on journeys to imaginary worlds.</p>
-            <p>My influences come from artists like Dan Seagrave, Douglas Henderson, John Sibbik, and Mark Hallet, as well as classic horror authors such as Tobe Hooper, H.P. Lovecraft, Clive Barker, and Stephen King, and iconic movies like 'Alien', 'Salem's Lot', and the 'Lord of the Rings' trilogy. Without a doubt, the character Kurt Barlow from 'Salem's Lot' is the cornerstone of all my nightmares and motivations.</p>
-            <p>I specialize in creating book covers, illustrations, conceptual art, and merchandising designs. If you need a piece that captures the essence of mysticism and darkness, feel free to contact me.</p>
-        </div>
-
-        <!-- Contenido en Francés -->
-        <div id="content-fr" class="texto hidden">
-            <p>Bonjour, je suis Juanjo Castellano, un artiste graphique professionnel basé en Espagne. La majorité de mon travail est initiée par moi-même, axée sur la capture d'idées, d'émotions et d'ambiances sombres, me permettant de voyager dans des mondes imaginaires.</p>
-            <p>Mes influences viennent d'artistes tels que Dan Seagrave, Douglas Henderson, John Sibbik et Mark Hallet, ainsi que d'auteurs de l'horreur classique comme Tobe Hooper, H.P. Lovecraft, Clive Barker et Stephen King, et de films emblématiques comme 'Alien', 'Salem's Lot' et la trilogie du 'Seigneur des Anneaux'. Sans aucun doute, le personnage de Kurt Barlow de 'Salem's Lot' est la pierre angulaire de tous mes cauchemars et motivations.</p>
-            <p>Je me spécialise dans la création de couvertures de livres, d'illustrations, d'art conceptuel et de designs de merchandising. Si vous avez besoin d'une œuvre qui capture l'essence du mysticisme et de l'obscurité, n'hésitez pas à me contacter.</p>
-        </div>
-
-        <!-- Contenido en Alemán -->
-        <div id="content-de" class="texto hidden">
-            <p>Hallo, ich bin Juanjo Castellano, ein professioneller Grafikdesigner aus Spanien. Ein Großteil meiner Arbeit ist eigenständig initiiert und konzentriert sich darauf, Ideen, Emotionen und dunkle Atmosphären einzufangen, die mich auf Reisen in imaginäre Welten führen.</p>
-            <p>Meine Einflüsse stammen von Künstlern wie Dan Seagrave, Douglas Henderson, John Sibbik und Mark Hallet, sowie von klassischen Horrorautoren wie Tobe Hooper, H.P. Lovecraft, Clive Barker und Stephen King und von ikonischen Filmen wie 'Alien', 'Brennen muss Salem' und der 'Herr der Ringe'-Trilogie. Ohne Zweifel ist die Figur Kurt Barlow aus 'Brennen muss Salem' der Eckpfeiler all meiner Albträume und Motivationen.</p>
-            <p>Ich spezialisiere mich auf die Erstellung von Buchcovern, Illustrationen, Konzeptkunst und Merchandising-Designs. Wenn Sie ein Werk benötigen, das die Essenz von Mystik und Dunkelheit einfängt, kontaktieren Sie mich gerne.</p>
-        </div>
-    </div>
-
-    <!-- Pie de página -->
-    <div class="footer">
-        <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
-    </div>
-
-    <script src="scripts.js"></script> <!-- Enlace al archivo JavaScript externo -->
+ 
+	
+	  <script src="scripts.js"></script> <!-- Enlace al archivo JavaScript externo -->
 </body>
 </html>
+
