@@ -55,8 +55,25 @@ function openModal(image) {
         modalImg.classList.remove('fullscreen');
     }
 
+    // Crear y agregar el botón de cierre en rojo
+    let closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.classList.add('close-modal-btn');  // Clase CSS para el estilo del botón
+    closeButton.onclick = closeModal;
+
+    // Elimina el botón existente si ya está en el DOM para evitar duplicados
+    const existingCloseButton = document.querySelector('.close-modal-btn');
+    if (existingCloseButton) existingCloseButton.remove();
+
+    modal.appendChild(closeButton);
     modal.style.display = 'flex';
 }
+
+// Cerrar modal
+function closeModal() {
+    document.querySelector('.modal').style.display = 'none';
+}
+
 
 // Navegar entre imágenes en el modal
 function navigateImage(step) {
@@ -120,4 +137,56 @@ function searchAndOpenModal(event) {
         }
     }
 }
+// JavaScript para agregar la clase "active" al enlace actual
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll(".navbar a");
+    const currentPath = window.location.pathname;
 
+    links.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
+    });
+});
+
+
+//Para la pagina de index
+
+  const slides = document.querySelectorAll('.slide');
+        const overlayText = document.getElementById('overlayText');
+        let currentIndex = 0;
+
+        // Textos correspondientes a cada imagen
+        const texts = ["Juanjo Castellano Artwork", "Album Cover", "Commission Artwork", "Fantasy and Horror Illustrations", "Available Art Portfolio"];
+
+        function showNextSlide() {
+            // Configurar el texto actual para que salga hacia la izquierda
+            overlayText.classList.remove('active');
+            overlayText.classList.add('exiting');
+
+            // Ocultar la imagen actual
+            slides[currentIndex].classList.remove('active');
+
+            // Calcular el siguiente índice y mostrar la imagen correspondiente
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+            overlayText.textContent = texts[currentIndex];
+
+            // Esperar a que termine la animación de salida antes de hacer que el texto entre desde la derecha
+            setTimeout(() => {
+                overlayText.classList.remove('exiting');
+                overlayText.classList.add('active');
+            }, 500);
+        }
+
+        // Cambio de slide cada 4 segundos
+        setInterval(showNextSlide, 4000);
+
+        // Cambio de slide al hacer clic
+        document.addEventListener('click', showNextSlide);
+
+        // Función para mostrar u ocultar el menú
+        function toggleMenu() {
+            const menuOptions = document.getElementById('menuOptions');
+            menuOptions.style.display = menuOptions.style.display === 'block' ? 'none' : 'block';
+        }
