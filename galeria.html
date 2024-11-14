@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explora la Music Covers de trabajos de Juanjo Castellano, un artista gráfico reconocido.">
-    <meta name="keywords" content="Juanjo Castellano, Music Covers, arte, ilustraciones">
-    <title>Music Covers - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Mover estilos a un archivo CSS -->
+    <meta name="description" content="Conoce a Juanjo Castellano, un artista gráfico especializado en atmósferas oscuras y místicas.">
+    <meta name="keywords" content="Juanjo Castellano, artista gráfico, ilustraciones, terror, portadas de libros">
+    <title>About - Juanjo Castellano</title>
+	 
+    <link rel="stylesheet" href="styles.css">
+ <!-- Enlace a Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Estilos en línea -->
+  
 </head>
 <body>
 
-    <!-- Menú superior -->
-    <div class="navbar">
-        <a href="index.html">About</a>
-        <a href="galeria.html">Music Covers</a>
-        <a href="contacto.html">Contact</a>
-    </div>
+    <!-- Menú superior con diseño específico -->
+    <header>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html" >About</a>
+            <a href="galeria.html" class="active">Album Covers</a>
+            <a href="contacto.html">Contact</a>
+        </div>
+    </header>
 
-    <!-- Selector de idioma y texto de introducción -->
-    <div class="language-selector">
-        <button onclick="changeDescriptionLanguage('es" onclick="openModal(this)">Español</button>
-        <button onclick="changeDescriptionLanguage('en" onclick="openModal(this)">English</button>
-        <button onclick="changeDescriptionLanguage('fr" onclick="openModal(this)">Français</button>
-        <button onclick="changeDescriptionLanguage('de" onclick="openModal(this)">Deutsch</button>
-    </div>
 
-    <h2 class="section-title">Music Covers</h2>
-    <div class="intro-section">
-        <p id="description-text">En esta página puedes explorar una selección de mis trabajos más representativos de los últimos años, realizados para bandas de culto que han confiado en mi estilo. Haz clic en las imágenes para ampliarlas y ver más detalles.</p>
-    </div>
 
-    <!-- Music Covers -->
+
+<h2 class="section-title">Album Covers</h2> <!-- Encabezado separado del contenido -->
+
+
+    <!-- Album Covers -->
     <div class="gallery" id="gallery">
         <!-- Añade aquí las imágenes con la estructura de data-page y onclick -->
 <img data-page="1" src="https://scontent-mad2-1.xx.fbcdn.net/v/t39.30808-6/329181582_938744867130382_6014770712217721119_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JXV-WoDBPWwQ7kNvgGUxGbq&_nc_zt=23&_nc_ht=scontent-mad2-1.xx&_nc_gid=A05cdTKrmihXstCfRUtAkb3&oh=00_AYA2NvtMi9e-13ymK2oabUchFgvGcOpAb6nUX3kqmK_bfw&oe=6735530F" alt="The Black Dahlia Murder Verminous" data-description="Album: Verminous\nBand: The Black Dahlia Murder\nDate: 2023" onclick="openModal(this)">
@@ -188,11 +190,22 @@
         <li onclick="showPage(2)">2</li>
         <li onclick="showPage(3)">3</li>
     </ul>
-
+  <script src="scripts.js"></script> <!-- Enlace al archivo JavaScript externo -->
+    <!-- Pie de página -->
     <div class="footer">
         <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/JuanjoCastellanoArts/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/juanjocastellano_art/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
     </div>
 
-    <script src="scripts.js"></script> <!-- Enlace al archivo JavaScript externo -->
+    
+
+  
 </body>
 </html>
