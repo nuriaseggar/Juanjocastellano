@@ -573,39 +573,3 @@ html, body {
         .menu-options a:hover {
             background-color: #555;
         }
-		/* Menú alternativo oculto por defecto */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-
-.mobile-menu a {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
-    margin: 15px;
-}
-
-.mobile-menu a:hover {
-    color: #ccc;
-}
-
-/* Mostrar menú e icono solo en pantallas pequeñas */
-@media (max-width: 768px) {
-    .navbar {
-        display: none; /* Oculta el menú normal */
-    }
-    .menu-icon {
-        display: block; /* Muestra el icono del menú */
-    }
-}

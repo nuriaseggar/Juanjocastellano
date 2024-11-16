@@ -211,10 +211,3 @@ document.addEventListener("click", function(event) {
         menuOptions.classList.remove("show");
     }
 });
-
-<script>
-function toggleMobileMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-}
-</script>
