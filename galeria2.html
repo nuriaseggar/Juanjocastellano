@@ -4,135 +4,452 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General: Importación de fuente Roboto */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Menú principal a la derecha */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .navbar a {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            text-decoration: none;
+            margin-left: 20px;
+            position: relative;
+            font-weight: normal;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            font-weight: bold;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #ff0000;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar a:hover::after, .navbar a.active::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Menú sandwich a la izquierda */
+        .menu {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-options {
+            display: none;
+            background-color: #f0f0f0;
+            color: #333;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        .menu-options a {
+            font-family: 'Roboto', sans-serif;
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 5px;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+        }
+
+        .menu-options a:hover {
+            font-weight: bold;
+            background-color: #ddd;
+        }
+
+        .menu-options.visible {
+            display: block;
+        }
+
+        /* Título de sección */
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+            color: #4d4d4d;
+            text-align: center;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 7%;
+            height: 4px;
+            background-color: #ff5733;
+            margin: 10px auto 0;
+        }
+      /* Galería */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: auto;
+            max-height: 300px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #333;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal .close,
+        .modal .arrow {
+            position: absolute;
+            color: #ff0000;
+            font-size: 2.5em; /* Aumentado */
+            font-weight: bold; /* Negrita */
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .modal .close {
+            top: 10px;
+            right: 10px; /* Inmediatamente después de la imagen */
+        }
+
+        .modal .arrow {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .modal .arrow.left {
+            left: 5%;
+        }
+
+        .modal .arrow.right {
+            right: 5%;
+        }
+   /* Botones de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #ff5733;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.pagination li:hover {
+    background-color: #ff0000;
+    transform: scale(1.1);
+}
+
+.pagination .active {
+    background-color: #cc0000;
+}
+
+    </style>
 </head>
 <body>
-
-    <!-- Menú superior y selector de idioma -->
-    <div class="navbar">
-        <a href="index.html">About</a>
+    <!-- Menú -->
+    <div class="menu" onclick="toggleMenu()">☰ </div>
+    <div class="menu-options" id="menuOptions">
+        <a href="about.html">About</a>
         <a href="galeria.html">Music Covers</a>
-        <a href="galeria2.html">Paleoart Illustrations</a>
-		<a href="galeria3.html">Other Works</a>
         <a href="contacto.html">Contact</a>
     </div>
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">Abotu</a>
+        <a href="galeria.html">Music Covers</a>
+        <a href="contacto.html">Contact</a>
+    </nav>
 
-    <div class="language-selector">
-        <button onclick="changeDescriptionLanguage('es')">Español</button>
-        <button onclick="changeDescriptionLanguage('en')">English</button>
-        <button onclick="changeDescriptionLanguage('fr')">Français</button>
-        <button onclick="changeDescriptionLanguage('de')">Deutsch</button>
-    </div>
-
-    <!-- Campo de búsqueda con botón -->
-    <div class="search-container">
-        <input type="text" id="search-bar" placeholder="Buscar por título o descripción...">
-        <button onclick="searchAndOpenModal()">Buscar</button>
-    </div>
-
-    <!-- Título y texto de introducción -->
-    <h2 class="section-title">Paleoart Illustrations</h2>
-    <div class="intro-section">
-        <p id="description-text" class="justify-text">
-            En esta página puedes explorar una selección de mis trabajos más representativos de los últimos años, realizados para bandas de culto que han confiado en mi estilo. Haz clic en las imágenes para ampliarlas y ver más detalles.
-        </p>
-    </div>
-
-    <!-- Galería de imágenes -->
+    <!-- Contenido principal -->
+ <!-- Album Covers -->
     <div class="gallery" id="gallery">
-        <img data-page="1" src="imagen1.jpg" alt="Imagen de ejemplo 1" data-description="Título: Imagen 1, Ubicación: Quito, Fecha: Noviembre 2024" onclick="openModal(this, 'Título: Imagen 1\nUbicación: Quito\nFecha: Noviembre 2024')">
-        <img data-page="1" src="imagen2.jpg" alt="Imagen de ejemplo 2" data-description="Título: Imagen 2, Ubicación: Guayaquil, Fecha: Octubre 2024" onclick="openModal(this, 'Título: Imagen 2\nUbicación: Guayaquil\nFecha: Octubre 2024')">
-    <img data-page="1" src="imagen3.jpg" alt="Imagen 3" onclick="openModal(this, 'Título: Imagen 3\nUbicación: Cuenca\nFecha: Septiembre 2024')">
-    <img data-page="1" src="imagen4.jpg" alt="Imagen 4" onclick="openModal(this, 'Título: Imagen 4\nUbicación: Loja\nFecha: Agosto 2024')">
-    <img data-page="1" src="imagen5.jpg" alt="Imagen 5" onclick="openModal(this, 'Título: Imagen 5\nUbicación: Machala\nFecha: Julio 2024')">
-    <img data-page="1" src="imagen6.jpg" alt="Imagen 6" onclick="openModal(this, 'Título: Imagen 6\nUbicación: Manta\nFecha: Junio 2024')">
-    <img data-page="1" src="imagen7.jpg" alt="Imagen 7" onclick="openModal(this, 'Título: Imagen 7\nUbicación: Esmeraldas\nFecha: Mayo 2024')">
-    <img data-page="1" src="imagen8.jpg" alt="Imagen 8" onclick="openModal(this, 'Título: Imagen 8\nUbicación: Ibarra\nFecha: Abril 2024')">
-    <img data-page="1" src="imagen9.jpg" alt="Imagen 9" onclick="openModal(this, 'Título: Imagen 9\nUbicación: Ambato\nFecha: Marzo 2024')">
-    <img data-page="1" src="imagen10.jpg" alt="Imagen 10" onclick="openModal(this, 'Título: Imagen 10\nUbicación: Riobamba\nFecha: Febrero 2024')">
-    <img data-page="1" src="imagen11.jpg" alt="Imagen 11" onclick="openModal(this, 'Título: Imagen 11\nUbicación: Latacunga\nFecha: Enero 2024')">
-    <img data-page="1" src="imagen12.jpg" alt="Imagen 12" onclick="openModal(this, 'Título: Imagen 12\nUbicación: Tulcán\nFecha: Diciembre 2023')">
-    <img data-page="1" src="imagen13.jpg" alt="Imagen 13" onclick="openModal(this, 'Título: Imagen 13\nUbicación: Santa Elena\nFecha: Noviembre 2023')">
-    <img data-page="1" src="imagen14.jpg" alt="Imagen 14" onclick="openModal(this, 'Título: Imagen 14\nUbicación: Santo Domingo\nFecha: Octubre 2023')">
-    <img data-page="1" src="imagen15.jpg" alt="Imagen 15" onclick="openModal(this, 'Título: Imagen 15\nUbicación: Quevedo\nFecha: Septiembre 2023')">
-    <img data-page="1" src="imagen16.jpg" alt="Imagen 16" onclick="openModal(this, 'Título: Imagen 16\nUbicación: Babahoyo\nFecha: Agosto 2023')">
-    <img data-page="1" src="imagen17.jpg" alt="Imagen 17" onclick="openModal(this, 'Título: Imagen 17\nUbicación: Puyo\nFecha: Julio 2023')">
-    <img data-page="1" src="imagen18.jpg" alt="Imagen 18" onclick="openModal(this, 'Título: Imagen 18\nUbicación: Nueva Loja\nFecha: Junio 2023')">
-    <img data-page="1" src="imagen19.jpg" alt="Imagen 19" onclick="openModal(this, 'Título: Imagen 19\nUbicación: Zamora\nFecha: Mayo 2023')">
-    <img data-page="1" src="imagen20.jpg" alt="Imagen 20" onclick="openModal(this, 'Título: Imagen 20\nUbicación: Macas\nFecha: Abril 2023')">
-        <!-- Añade hasta 20 imágenes con data-page="1" -->
+        <!-- Añade aquí las imágenes con la estructura de data-page y onclick -->
 
-        <!-- Página 2 -->
-            <img data-page="2" src="imagen21.jpg" alt="Imagen 21" onclick="openModal(this, 'Título: Imagen 21\nUbicación: Loja\nFecha: Agosto 2024')">
-    <img data-page="2" src="imagen22.jpg" alt="Imagen 22" onclick="openModal(this, 'Título: Imagen 22\nUbicación: Machala\nFecha: Julio 2024')">
-    <img data-page="2" src="imagen23.jpg" alt="Imagen 23" onclick="openModal(this, 'Título: Imagen 23\nUbicación: Puyo\nFecha: Junio 2024')">
-    <img data-page="2" src="imagen24.jpg" alt="Imagen 24" onclick="openModal(this, 'Título: Imagen 24\nUbicación: Quevedo\nFecha: Mayo 2024')">
-    <img data-page="2" src="imagen25.jpg" alt="Imagen 25" onclick="openModal(this, 'Título: Imagen 25\nUbicación: Ambato\nFecha: Abril 2024')">
-    <img data-page="2" src="imagen26.jpg" alt="Imagen 26" onclick="openModal(this, 'Título: Imagen 26\nUbicación: Riobamba\nFecha: Marzo 2024')">
-    <img data-page="2" src="imagen27.jpg" alt="Imagen 27" onclick="openModal(this, 'Título: Imagen 27\nUbicación: Cuenca\nFecha: Febrero 2024')">
-    <img data-page="2" src="imagen28.jpg" alt="Imagen 28" onclick="openModal(this, 'Título: Imagen 28\nUbicación: Santa Elena\nFecha: Enero 2024')">
-    <img data-page="2" src="imagen29.jpg" alt="Imagen 29" onclick="openModal(this, 'Título: Imagen 29\nUbicación: Zamora\nFecha: Diciembre 2023')">
-    <img data-page="2" src="imagen30.jpg" alt="Imagen 30" onclick="openModal(this, 'Título: Imagen 30\nUbicación: Ibarra\nFecha: Noviembre 2023')">
-    <img data-page="2" src="imagen31.jpg" alt="Imagen 31" onclick="openModal(this, 'Título: Imagen 31\nUbicación: Santo Domingo\nFecha: Octubre 2023')">
-    <img data-page="2" src="imagen32.jpg" alt="Imagen 32" onclick="openModal(this, 'Título: Imagen 32\nUbicación: Babahoyo\nFecha: Septiembre 2023')">
-    <img data-page="2" src="imagen33.jpg" alt="Imagen 33" onclick="openModal(this, 'Título: Imagen 33\nUbicación: Nueva Loja\nFecha: Agosto 2023')">
-    <img data-page="2" src="imagen34.jpg" alt="Imagen 34" onclick="openModal(this, 'Título: Imagen 34\nUbicación: Quito\nFecha: Julio 2023')">
-    <img data-page="2" src="imagen35.jpg" alt="Imagen 35" onclick="openModal(this, 'Título: Imagen 35\nUbicación: Guayaquil\nFecha: Junio 2023')">
-    <img data-page="2" src="imagen36.jpg" alt="Imagen 36" onclick="openModal(this, 'Título: Imagen 36\nUbicación: Manta\nFecha: Mayo 2023')">
-    <img data-page="2" src="imagen37.jpg" alt="Imagen 37" onclick="openModal(this, 'Título: Imagen 37\nUbicación: Tulcán\nFecha: Abril 2023')">
-    <img data-page="2" src="imagen38.jpg" alt="Imagen 38" onclick="openModal(this, 'Título: Imagen 38\nUbicación: Latacunga\nFecha: Marzo 2023')">
-    <img data-page="2" src="imagen39.jpg" alt="Imagen 39" onclick="openModal(this, 'Título: Imagen 39\nUbicación: Macas\nFecha: Febrero 2023')">
-    <img data-page="2" src="imagen40.jpg" alt="Imagen 40" onclick="openModal(this, 'Título: Imagen 40\nUbicación: Portoviejo\nFecha: Enero 2023')">
-        <!-- Añade hasta 20 imágenes con data-page="2" -->
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen1.jpg" alt="The Black Dahlia Murder Verminous" data-description="Album: Verminous\nBand: The Black Dahlia Murder\nDate: 2023" onclick="openModal(this)">
+   
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen2.jpg" alt="World War Nightmare" data-description="Album: World War Nightmare\nBand: UNDEAD'S DAMNATION\nDate: 2024" onclick="openModal(this)">
 
-        <!-- Página 3 -->
-        <img data-page="3" src="imagen41.jpg" alt="Imagen 41" onclick="openModal(this, 'Título: Imagen 41\nUbicación: Esmeraldas\nFecha: Mayo 2024')">
-        <img data-page="3" src="imagen42.jpg" alt="Imagen 42" onclick="openModal(this, 'Título: Imagen 42\nUbicación: Ibarra\nFecha: Abril 2024')">
-        <!-- Añade hasta 20 imágenes con data-page="3" -->
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen3.jpg" alt="Voracious Streams" data-description="Album: Voracious Streams\nBand: Concrete Icon\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen4.jpg" alt="In Service of the Dead" data-description="Album: In Service of the Dead\nBand: Sentient Horror\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen5.jpg" alt="After The Flesh" data-description="Album: After The Flesh\nBand: Kaivs\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen6.jpg" alt="Well Of Liquid Souls" data-description="Album: Well Of Liquid Souls\nBand: Demored\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen7.jpg" alt="The Gate of the Veiled Beyond" data-description="Album: The Gate of the Veiled Beyond\nBand: Typhonian\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen8.jpg" alt="Darkness Falls Upon Mankind" data-description="Album: Darkness Falls Upon Mankind\nBand: Dark Horizon\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen9.jpg" alt="Garden of Bones" data-description="Album: Garden of Bones\nBand: Sorcery\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen10.jpg" alt="Defilers Of the Light" data-description="Album: Defilers Of the Light\nBand: Darkened\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen11.jpg" alt="Gravesight" data-description="Album: Gravesight\nBand: Human Infection\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen12.jpg" alt="But Merely Flesh" data-description="Album: But Merely Flesh\nBand: Ritual Fog\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen13.jpg" alt="Fetid" data-description="Album: Fetid\nBand: Barbarian Swords\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen14.jpg" alt="Maze Envy" data-description="Album: Maze Envy\nBand: Civerous\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen15.jpg" alt="Fragments of the Ageless" data-description="Album: Fragments of the Ageless\nBand: Skeletal Remains\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen16.jpg" alt="Last Bullet" data-description="Album: Last Bullet\nBand: Nemesis\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen17.jpg" alt="Daydream Illusion" data-description="Album: Daydream Illusion\nBand: Thornbridge\nDate: 2024" onclick="openModal(this)">
+
+<img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen18.jpg" alt="Monokrator" data-description="Album: Monokrator\nBand: The Bleeding\nDate: 2024" onclick="openModal(this)">
+
+<!-- <img data-page="1" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen19.jpg" alt="Infernal Dawn" data-description="Album: Infernal Dawn\nBand: Sinistrum\nDate: 2023" onclick="openModal(this)">-->
+
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen20.jpg" alt="Vast Reaches Unclaimed" data-description="Album: Vast Reaches Unclaimed\nBand: Majesties\nDate: 2023" onclick="openModal(this)">
+
+  <!-- Página 2 -->
+
+
+
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen21.jpg" alt="Illusion Of Existence" data-description="Album: Illusion Of Existence\nBand: Czech\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen22.jpg" alt="The Dark Age" data-description="Album: The Dark Age\nBand: Shunyata\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen23.jpg" alt="Traumatic Putrefaction" data-description="Album: Traumatic Putrefaction\nBand: Abominated\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen24.jpg" alt="In Ancient Beliefs" data-description="Album: In Ancient Beliefs\nBand: Deteriorot\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen25.jpg" alt="Remember Me" data-description="Album: Remember Me\nBand: Disgusting Perversion\nDate: 2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen26.jpg" alt="Bloodshed" data-description="Album: Bloodshed\nBand: Murdery\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen27.jpg" alt="Ceremonial Resurrection" data-description="Album: Ceremonial Resurrection\nBand: Cathartic\nDate:  2023" onclick="openModal(this)">
+<!-- <img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen28.jpg" alt="Lord Of Sickness And Bile" data-description="Album: Lord Of Sickness And Bile\nBand: Darkened\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen29.jpg" alt="Chapel Of Abhorrence" data-description="Album: Chapel Of Abhorrence\nBand: Carnation\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen30.jpg" alt="Tribute to HEADHUNTER D.C." data-description="Album: Tribute to HEADHUNTER D.C\nBand: HEADHUNTER D.C\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen31.jpg" alt="Evolution Of Ethereal Wisdom" data-description="Album: Evolution Of Ethereal Wisdom\nBand: Quita Essentia\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen32.jpg" alt="The After Dark" data-description="Album: The After Dark\nBand: Unleashed\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen33.jpg" alt="Across the Aenos" data-description="Album: Across the Aenos\nBand: Astralborne\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen34.jpg" alt="Victims Of Vile Torture" data-description="Album: Victims Of Vile Torture\nBand: Nueva Tombstoner\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen35.jpg" alt="Across the Empty Plains" data-description="Album: Across the Empty Plains\nBand: Devourer\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen36.jpg" alt="From The Sulphur Depths" data-description="Album: From The Sulphur Depths\nBand: Helslave\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen37.jpg" alt="Monokrator" data-description="Album: Monokrator\nBand: The Bleeding\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen38.jpg" alt="A Bloodred Path" data-description="Album: A Bloodred Path\nBand: Gates Of Ishtar\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen39.jpg" alt="DARKENED" data-description="Album: DARKENED\nBand: DARKENED\nDate:  2023" onclick="openModal(this)">
+<img data-page="2" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen40.jpg" alt="Nuclear Death" data-description="Album: Nuclear Death\nBand: UNHOPED\nDate:  2023" onclick="openModal(this)">
+
+
+  <!-- Página 3 -->
+<!-- <img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen41.jpg" alt="Unmake" data-description="Album: Unmake\nBand: MORDBRAND\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen42.jpg" alt="Withing The Depths Of Oblivion" data-description="Album: Withing The Depths Of Oblivion\nBand: ONTBORG\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen43.jpg" alt="Phyrxian Sun" data-description="Album: Phyrxian Sun \nBand: PHYRXIAN SUN\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen44.jpg" alt="Threads of unknowing" data-description="Album: Threads of unknowing\nBand: Voidceremony\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen45.jpg" alt="Clarion Call Of Destiny" data-description="Album: Clarion Call Of Destiny\nBand: ZORAKARER\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen46.jpg" alt="Kingdom Of Decay" data-description="Album: Kingdom Of Decay \nBand: DARKENED\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen47.jpg" alt="Dead Eyes Revelations" data-description="Album: Dead Eyes Revelations \nBand: HORACLE\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen48.jpg" alt="GOREGANG Neon Graves" data-description="Album: GOREGANG Neon Graves\nBand: GOREGANG\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen49.jpg" alt="Evolve" data-description="Album: Evolve\nBand: UNSOULED\nDate:  2013" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen50.jpg" alt="From The Sulphur Depths" data-description="Album: From The Sulphur Depths \nBand: HELSLAVE \nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen51.jpg" alt="WOMBBATH" data-description="Album: WOMBBATH \nBand: REVEL IN FLESH\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen52.jpg" alt="Following the Steps of Damnation" data-description="Album: Following the Steps of Damnation\nBand: ONTBORG\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen53.jpg" alt="Garden of Bones" data-description="Album: Garden of Bones\nBand: Sourcery\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen54.jpg" alt="Scent Of The Burial" data-description="Album: Scent Of The Burial\nBand: INTERMENT\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen55.jpg" alt="Horrend" data-description="Album: Horrend\nBand: KAIVS\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen56.jpg" alt="In Ancient Beliefs" data-description="Album: In Ancient Beliefs\nBand: Deteriorot\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen57.jpg" alt="La Senda de la Muerte" data-description="Album: La Senda de la Muerte\nBand: Sol de Sangre, Pánico Al Miedo\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen58.jpg" alt="Songs Of Flesh And Decay" data-description="Album: Songs Of Flesh And Decay\nBand: STASS\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen59.jpg" alt="Dracunculus Medinensis" data-description="Album: Dracunculus Medinensis\nBand: WILT\nDate:  2023" onclick="openModal(this)">
+<img data-page="3" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen60.jpg" alt="Into Nothingness" data-description="Album: Into Nothingness\nBand: WILT\nDate:  2023" onclick="openModal(this)">
+
+	 
+   
+   
+     <!-- Página 4 -->
+<!-- <img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen61.jpg" alt="Exuvian Heraldry" data-description="Album: Exuvian Heraldry\nBand: Katharos\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen62.jpg" alt="North" data-description="Album: North\nBand: TRIDENT\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen63.jpg" alt="Faith in Chaos" data-description="Album: Faith in Chaos\nBand: UNBOUNDED TERROR\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen64.jpg" alt="Earth Base One" data-description="Album: Earth Base One\nBand: TIWANAKU\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen65.jpg" alt="Anatomy Lessons" data-description="Album: Anatomy Lessons\nBand: NASTY SURGEONS\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen66.jpg" alt="Horracle" data-description="Album: Horracle\nBand: ESKHATON\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen67.jpg" alt="Remember Me" data-description="Album: Remember Me\nBand: DISGUSTING PERVERSION\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen68.jpg" alt="Fathomless Hysteros" data-description="Album: Fathomless Hysteros\nBand: QUIJA\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen69.jpg" alt="Till Death Do Us Rot" data-description="Album: Till Death Do Us Rot\nBand: SENTIENT HORROR\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen70.jpg" alt="Streets Of Calimport" data-description="Album: Streets Of Calimport\nBand: CHARONS CLAW\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen71.jpg" alt="Throne Of Malice" data-description="Album: Throne Of Malice\nBand: HASEROT\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen72.jpg" alt="Ghosts Of A Darkness To Come" data-description="Album: Ghosts Of A Darkness To Come\nBand: NIGHTBEARER\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen73.jpg" alt="The Black Winter" data-description="Album: The Black Winter\nBand: DARKENED\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen74.jpg" alt="Ancient Psychophony" data-description="Album: Ancient Psychophony\nBand: Corrupt Soul\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen75.jpg" alt="Roots Of Damnation" data-description="Album: Roots Of Damnation\nBand: GRAVE NOISE\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen76.jpg" alt="Dawn of Cataclysm" data-description="Album: Dawn of Cataclysm\nBand: ATAUL\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen77.jpg" alt="Descent Into Madness" data-description="Album: Descent Into Madness\nBand: CORRUPTER\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen78.jpg" alt="Embalmed Alive" data-description="Album: Embalmed Alive\nBand: EMBALMER\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen79.jpg" alt="Rites Of Gore" data-description="Album: Rites Of Gore\nBand: SENTINENT HORROR\nDate:  2023" onclick="openModal(this)">
+<img data-page="4" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen80.jpg" alt="Beyond The Macabre" data-description="Album: Beyond The Macabre\nBand: PAGANIZER\nDate:  2023" onclick="openModal(this)">
+
+   
+  
+
+
+     <!-- Página 5 -->
+<!-- <img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen81.jpg" alt="Mourn The Dying Light" data-description="Album: Mourn The Dying Light\nBand: DARKENED\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen82.jpg" alt="Agma" data-description="Album: Agma\nBand: WOMBBATH\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen83.jpg" alt="Welthanschauung" data-description="Album: Welthanschauung\nBand: WHEN AT NIGHT\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen84.jpg" alt="Victims of Vile Torture" data-description="Album: Victims of Vile Torture\nBand: Tombstoner\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen85.jpg" alt="Death.....The Final Frontier" data-description="Album: Death.....The Final Frontier\nBand: CENTENARY\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen86.jpg" alt="Future Usurper" data-description="Album: Future Usurper\nBand: CRYPT CRAWLER\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen87.jpg" alt="From The Sulphur Depths" data-description="Album: From The Sulphur Depths\nBand: HELSLAVE\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen88.jpg" alt="Infernal Warrior of Death" data-description="Album: Infernal Warrior of Death\nBand: Blaspherian\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen89.jpg" alt="Ancient Psychophony" data-description="Album: Ancient Psychophony\nBand: CORRUPT SOUL\nDate:  2023" onclick="openModal(this)">
+<img data-page="5" src="https://raw.githubusercontent.com/nuriaseggar/img/main/imagen90.jpg" alt="Sonic Violence" data-description="Album: Sonic Violence\nBand: UNHOPED\nDate:  2023" onclick="openModal(this)">-->
+
+
+
+
     </div>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Imagen ampliada">
-            <div class="description">
-                <p class="bold-field">Título:</p>
-                <p class="text-field" id="modalTitle"></p>
-                <p class="bold-field">Ubicación:</p>
-                <p class="text-field" id="modalLocation"></p>
-                <p class="bold-field">Fecha:</p>
-                <p class="text-field" id="modalDate"></p>
-            </div>
-        </div>
+    <div class="modal" id="imageModal">
+        <span class="close" id="closeModal">&times;</span>
+        <span class="arrow left" id="prevImage">&lt;</span>
+        <span class="arrow right" id="nextImage">&gt;</span>
+        <img id="modalImage" src="" alt="Imagen ampliada">
     </div>
 
-    <!-- Paginación -->
+
+
+<!-- Paginación -->
     <ul class="pagination">
         <li onclick="showPage(1)">1</li>
         <li onclick="showPage(2)">2</li>
-        <li onclick="showPage(3)">3</li>
+        <!--<li onclick="showPage(3)">3</li>
+		<li onclick="showPage(4)">4</li>
+		<li onclick="showPage(5)">5</li>-->
     </ul>
-
-    <div class="footer">
-        <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
-    </div>
-
-    <script src="scripts.js"></script>
-    <script>
-        // Filtrar imágenes basadas en la búsqueda
-        function filterImages() {
-            const input = document.getElementById("search-input").value.toLowerCase();
-            const allImages = document.querySelectorAll(".gallery img");
-
-            allImages.forEach(img => {
-                const title = img.alt.toLowerCase(); // Usar el alt como título
-                img.style.display = title.includes(input) ? "block" : "none";
-            });
-
-            // Mostrar la primera página después de filtrar
-            showPage(1);
+    <!-- Script -->
+  <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuOptions');
+            menu.classList.toggle('visible');
         }
+
+        function showPage(pageNumber) {
+            const allImages = document.querySelectorAll(".gallery img");
+            allImages.forEach(img => {
+                img.style.display = img.getAttribute("data-page") == pageNumber ? "block" : "none";
+            });
+            document.querySelectorAll('.pagination li').forEach(li => li.classList.remove('active'));
+            document.querySelector(`.pagination li:nth-child(${pageNumber})`).classList.add('active');
+        }
+
+        // Inicializar galería en la primera página
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(1);
+        });
+
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const prevImage = document.getElementById('prevImage');
+        const nextImage = document.getElementById('nextImage');
+        let currentIndex = 0;
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                updateModalImage();
+                modal.style.display = 'flex';
+            });
+        });
+
+        function updateModalImage() {
+            modalImage.src = images[currentIndex].src;
+        }
+
+        prevImage.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        });
+
+        nextImage.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
