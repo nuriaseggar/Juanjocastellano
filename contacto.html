@@ -26,10 +26,7 @@
     <h2 class="section-title">Contact</h2>
 
     <div class="contenido">
-        <!-- Columna de la imagen
-        <div class="columna imagen">
-            <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil">
-        </div> -->
+        
 
         <!-- Contenido en Español (visible por defecto) -->
         <div id="content-es" class="columna texto">
@@ -139,13 +136,27 @@
     </div>
 
     <!-- Scripts en línea (del archivo scripts.js)-->
-    <script>
+     <script>
         function changeLanguage(language) {
+            // Ocultar todos los contenidos
             const contents = ['content-es', 'content-en', 'content-fr', 'content-de'];
-            contents.forEach(id => document.getElementById(id).classList.add('hidden'));
-            document.getElementById(`content-${language}`).classList.remove('hidden');
-        }
-    </script> 
+            contents.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
 
+            // Mostrar el contenido seleccionado
+            document.getElementById(`content-${language}`).classList.remove('hidden');
+
+            // Actualizar los botones activos
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`[onclick="changeLanguage('${language}')"]`).classList.add('active');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menuOptions');
+            menu.classList.toggle('visible');
+        }
+    </script>
 </body>
 </html>
