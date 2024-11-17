@@ -3,136 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="alternate" hreflang="es" href="https://juanjocastellano.com/about.html" />
-    <link rel="alternate" hreflang="en" href="https://juanjocastellano.com/about.html" />
-    <link rel="alternate" hreflang="fr" href="https://juanjocastellano.com/about.html" />
-    <link rel="alternate" hreflang="de" href="https://juanjocastellano.com/about.html" />
-	<meta name="description" lang="es" content="Juanjo Castellano, Artista e Ilustrador, arte oscuro, death metal, black metal, folk metal, metal. Encargos personalizados, arte disponible." />
-	<meta name="description" lang="en" content="Juanjo Castellano, Artist and Illustrator, dark art, death metal, black metal, folk metal, metal. Custom commissions, available art." />
-	<meta name="description" lang="fr" content="Juanjo Castellano, Artiste et Illustrateur, art sombre, death metal, black metal, folk metal, métal. Commandes personnalisées, art disponible." />
-	<meta name="description" lang="de" content="Juanjo Castellano, Künstler und Illustrator, dunkle Kunst, Death Metal, Black Metal, Folk Metal, Metal. Individuelle Aufträge, verfügbare Kunst." />
-
-	
-	
-	<meta name="keywords" content="arte death metal, portadas álbumes thrash metal, diseño gráfico música extrema, ilustraciones oscuras, portadas de metal" />
-<meta name="keywords" lang="en" content="death metal art, thrash metal album covers, extreme music graphic design, dark illustrations, metal covers, custom commissions" />
-<meta name="keywords" lang="fr" content="art death metal, couvertures d'albums thrash metal, design graphique musique extrême, illustrations sombres, couvertures de metal, commandes personnalisées" />
-<meta name="keywords" lang="de" content="Death Metal Kunst, Thrash Metal Albumcover, Grafikdesign extreme Musik, dunkle Illustrationen, Metalcover, individuelle Aufträge" />
-
+    <link rel="stylesheet" href="styles_general.css">
     <title>Arte Disponible y Encargos Personalizados - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css">
-   
-    
 </head>
 <body>
-      <!-- Menú sándwich para dispositivos pequeños -->
-    <div class="menu" onclick="toggleMenu()">☰</div>
+    <!-- Menú -->
+    <div class="menu" onclick="toggleMenu()">☰ </div>
     <div class="menu-options" id="menuOptions">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="galeria.html" >Album Covers</a>
+        <a href="about.html">About</a>
+        <a href="galeria.html">Music Covers</a>
         <a href="contacto.html">Contact</a>
     </div>
-	
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="galeria.html" >Music Covers</a>
+        <a href="contacto.html">Contact</a>
+    </nav>
 
-    <!-- Menú superior para dispositivos grandes -->
-    <header>
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="galeria.html" >Album Covers</a>
-            <a href="contacto.html">Contact</a>
+
+    <!-- Encabezado principal -->
+    <h2 class="section-title">About</h2>
+
+    <div class="contenido">
+        <!-- Columna de la imagen -->
+        <div class="columna imagen">
+            <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil">
         </div>
-    </header>
 
-
-    <!-- Selector de idioma -->
-   
-    <!-- Encabezado principal de la página -->
-	 
-    <h2 class="section-title">About</h2><div class="contenido">
-  <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil">
-
-    <!-- Contenedores de contenido por idioma -->
-    <!-- Contenido en Español -->
-
-
-    <!-- Selector de idioma arriba del texto -->
-
-
-
-        <div id="content-es" class="texto">
-		
-		    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+        <!-- Contenido en Español (visible por defecto) -->
+        <div id="content-es" class="columna texto">
+            <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn active" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn"   aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
             <p>Hola, soy <strong>Juanjo Castellano</strong>, un artista gráfico profesional con base en España. Mi trabajo es en su mayoría de iniciativa propia, donde me enfoco en capturar ideas, sentimientos y atmósferas oscuras, permitiéndome viajar a mundos imaginarios.</p>
             <p>Mis influencias provienen de artistas como Dan Seagrave, Douglas Henderson, John Sibbik y Mark Hallet, así como de autores de terror clásico como Tobe Hooper, H.P. Lovecraft, Clive Barker y Stephen King, y de películas icónicas como 'Alien', 'Salem's Lot' y la trilogía de 'El Señor de los Anillos'. Sin duda, el personaje Kurt Barlow de 'Salem's Lot' es la piedra angular de todas mis pesadillas y motivaciones.</p>
             <p>Trabajo en la creación de portadas de libros, ilustraciones, arte conceptual y diseño de merchandising. Si necesitas una obra que capture la esencia de lo místico y oscuro, no dudes en contactarme.</p>
         </div>
 
-        <!-- Contenido en Inglés (oculto inicialmente) -->
-        <div id="content-en" class="texto hidden">
-		    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+        <!-- Contenido en Inglés -->
+        <div id="content-en" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn active" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
             <p>Hello, I’m <strong>Juanjo Castellano</strong>, a professional graphic artist based in Spain. My work is mostly self-initiated, focusing on capturing ideas, emotions, and dark atmospheres, allowing me to journey to imaginary worlds.</p>
             <p>My influences include artists like Dan Seagrave, Douglas Henderson, John Sibbik, and Mark Hallet, and classic horror authors such as Tobe Hooper, H.P. Lovecraft, Clive Barker, and Stephen King, along with iconic movies like 'Alien', 'Salem's Lot', and the 'Lord of the Rings' trilogy.</p>
             <p>I specialize in creating book covers, illustrations, conceptual art, and merchandising designs. If you need a piece that captures the essence of mysticism and darkness, feel free to contact me.</p>
         </div>
-  <!-- Contenido en Francés -->
-        <div id="content-fr" class="texto hidden">
-		    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
-            <p>Bonjour, je suis Juanjo Castellano, un artiste graphique professionnel basé en Espagne. La majorité de mon travail est initiée par moi-même, axée sur la capture d'idées, d'émotions et d'ambiances sombres, me permettant de voyager dans des mondes imaginaires.</p>
+        <!-- Contenido en Francés -->
+        <div id="content-fr" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn active"   aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
+           <p>Bonjour, je suis Juanjo Castellano, un artiste graphique professionnel basé en Espagne. La majorité de mon travail est initiée par moi-même, axée sur la capture d'idées, d'émotions et d'ambiances sombres, me permettant de voyager dans des mondes imaginaires.</p>
             <p>Mes inspirations proviennent d'auteurs classiques de l'horreur tels que H.P. Lovecraft, Clive Barker et Stephen King, ainsi que de films emblématiques tels que "Alien", "Hellraiser" et la trilogie du "Seigneur des Anneaux".</p>
             <p>Je me spécialise dans la création de couvertures de livres, d'illustrations, d'art conceptuel et de designs de merchandising. Si vous avez besoin d'une œuvre qui capture l'essence du mysticisme et de l'obscurité, n'hésitez pas à me contacter.</p>
         </div>
 
         <!-- Contenido en Alemán -->
-        <div id="content-de" class="texto hidden">
-		    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+        <div id="content-de" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn active"   aria-label="Deutsch">DE</button>
+            </div>
             <p>Hallo, ich bin Juanjo Castellano, ein professioneller Grafikdesigner aus Spanien. Ein Großteil meiner Arbeit ist eigenständig initiiert und konzentriert sich darauf, Ideen, Emotionen und dunkle Atmosphären einzufangen, die mich auf Reisen in imaginäre Welten führen.</p>
             <p>Meine Inspirationen stammen von klassischen Horrorschriftstellern wie H.P. Lovecraft, Clive Barker und Stephen King sowie von ikonischen Filmen wie "Alien", "Hellraiser" und der "Der Herr der Ringe"-Trilogie.</p>
             <p>Ich spezialisiere mich auf die Erstellung von Buchcovern, Illustrationen, Konzeptkunst und Merchandising-Designs. Wenn Sie ein Werk benötigen, das die Essenz von Mystik und Dunkelheit einfängt, kontaktieren Sie mich gerne.</p>
         </div>
     </div>
-    </div>
 
-    <!-- Contenido en Alemán -->
-    <div id="content-de" class="texto hidden">
-        <h2>Verfügbare Kunst und Auftragsarbeiten</h2>
-        <p>Entdecken Sie eine Auswahl meiner zum Verkauf stehenden Werke, die mit Leidenschaft und Hingabe für diejenigen geschaffen wurden, die ein einzigartiges und bedeutungsvolles Stück suchen...</p>
-        <hr>
-        <div class="columnas">
-            <div class="columna">
-                <h3>Katalog der Verfügbaren Werke Anfordern</h3>
-                <p>Um den vollständigen Katalog der derzeit verfügbaren Werke einzusehen, senden Sie mir bitte eine E-Mail an 
-                   <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            
-                <p>Wenn Sie an einer individuellen Auftragsarbeit interessiert sind, senden Sie mir bitte eine E-Mail mit einer kurzen Beschreibung Ihrer Idee oder Ihres Konzepts.</p>
-                <p><strong>E-Mail</strong>: 
-                   <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            </div>
-        </div>
-    </div>
-
-   <!-- Pie de página -->
+    <!-- Pie de página -->
     <div class="footer">
         <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
         <div class="social-icons">
@@ -144,15 +95,29 @@
             </a>
         </div>
     </div>
-
-    <!-- Scripts en línea (del archivo scripts.js) -->
+  
+    <!-- Scripts -->
     <script>
         function changeLanguage(language) {
+            // Ocultar todos los contenidos
             const contents = ['content-es', 'content-en', 'content-fr', 'content-de'];
-            contents.forEach(id => document.getElementById(id).classList.add('hidden'));
+            contents.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+
+            // Mostrar el contenido seleccionado
             document.getElementById(`content-${language}`).classList.remove('hidden');
+
+            // Actualizar los botones activos
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`[onclick="changeLanguage('${language}')"]`).classList.add('active');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menuOptions');
+            menu.classList.toggle('visible');
         }
     </script>
-
 </body>
 </html>

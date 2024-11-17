@@ -3,39 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce a Juanjo Castellano, un artista gráfico especializado en atmósferas oscuras y místicas.">
-    <meta name="keywords" content="Juanjo Castellano, artista gráfico, ilustraciones, terror, portadas de libros">
     <title>Galería - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	   <link rel="stylesheet" href="styles_general.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/css/font-awesome.min.css">
+<!--    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilo del encabezado */
+.section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #4d4d4d;
+    text-align: center;
+    margin: 20px auto;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 7%;
+    height: 4px;
+    background-color: #ff5733;
+    margin: 10px auto 0;
+}
+
+/* Menú principal */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.navbar a {
+    font-family: 'Roboto', sans-serif;
+    color: #000; /* Tipografía en negro */
+    text-decoration: none;
+    margin-left: 20px;
+    position: relative;
+    font-weight: normal;
+    transition: all 0.3s ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #ff5733; /* Subrayado en rojo */
+    transform: scaleX(0); /* Inicialmente invisible */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; /* Animación del subrayado */
+}
+
+.navbar a:hover {
+    font-weight: bold; /* Negrita al pasar el ratón */
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1); /* Subrayado visible */
+    transform-origin: bottom left;
+}
+
+.navbar a.active {
+    font-weight: bold;
+    color: #black;
+}
+
+.navbar a.active::after {
+    transform: scaleX(1); /* Subrayado activo */
+    transform-origin: bottom left;
+}
+
+/* Menú hamburguesa */
+.menu {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-options {
+    display: none;
+    background-color: #f0f0f0;
+    color: #333;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.menu-options a {
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 5px;
+    transition: background-color 0.3s ease, font-weight 0.3s ease;
+}
+
+.menu-options a:hover {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.menu-options.visible {
+    display: block;
+}
+
+/* Ocultar menú hamburguesa en pantallas grandes */
+@media (min-width: 769px) {
+    .menu {
+        display: none;
+    }
+    .menu-options {
+        display: none !important;
+    }
+}
+
+/* Ocultar menú principal en pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+/* Galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.gallery img {
+    width: 300px;
+    height: auto;
+    max-height: 300px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    border-color: #333;
+}
+
+/* Modal */
+.modal {
+display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal .close,
+.modal .arrow {
+   position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.modal .close {
+    top: 10px;
+    right: 10px;
+}
+
+.modal .arrow {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal .arrow.left {
+    left: 5%;
+}
+
+.modal .arrow.right {
+    right: 5%;
+}
+
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #ff5733;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.pagination li:hover {
+    background-color: #ff0000;
+    transform: scale(1.1);
+}
+
+.pagination .active {
+    background-color: #cc0000;
+}
+
+
+
+    </style>-->
 </head>
 <body>
+    <!-- Menú -->
+    <div class="menu" onclick="toggleMenu()">☰ </div>
+    <div class="menu-options" id="menuOptions">
+        <a href="about.html">About</a>
+        <a href="galeria.html">Music Covers</a>
+        <a href="contacto.html">Contact</a>
+    </div>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="galeria.html" class="active">Music Covers</a>
+        <a href="contacto.html">Contact</a>
+    </nav>
 
-<!-- Icono del menú para pantallas pequeñas -->
-<div class="menu-icon" onclick="toggleMobileMenu()">
-    <i class="fas fa-bars"></i> <!-- Icono de menú -->
-</div>
-
-
-
-
-    <!-- Menú superior para dispositivos grandes -->
-    <header>
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="galeria.html" class="active">Album Covers</a>
-            <a href="contacto.html">Contact</a>
-        </div>
-    </header>
-
-
-
-
+    <!-- Contenido principal -->
+	
 <h2 class="section-title">Album Covers</h2> <!-- Encabezado separado del contenido -->
-
-
-    <!-- Album Covers -->
+ <!-- Album Covers -->
     <div class="gallery" id="gallery">
         <!-- Añade aquí las imágenes con la estructura de data-page y onclick -->
 
@@ -171,33 +411,20 @@
 
 
 
-
-
-
-
-   
-   
-   </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <button class="prev" onclick="navigateImage(-1)">&#10094;</button>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Imagen ampliada">
-            <div class="description">
-                <p class="bold-field">Título:</p>
-                <p class="text-field" id="modalTitle"></p>
-                <p class="bold-field">Band:</p>
-                <p class="text-field" id="modalLocation"></p>
-                <p class="bold-field">Date:</p>
-                <p class="text-field" id="modalDate"></p>
-            </div>
-        </div>
-        <button class="next" onclick="navigateImage(1)">&#10095;</button>
     </div>
 
-    <!-- Paginación -->
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close" id="closeModal">&times;</span>
+        <span class="arrow left" id="prevImage">&lt;</span>
+        <span class="arrow right" id="nextImage">&gt;</span>
+        <img id="modalImage" src="" alt="Imagen ampliada">
+    </div>
+
+
+
+
+<!-- Paginación -->
     <ul class="pagination">
         <li onclick="showPage(1)">1</li>
         <li onclick="showPage(2)">2</li>
@@ -205,8 +432,10 @@
 		<li onclick="showPage(4)">4</li>
 		<li onclick="showPage(5)">5</li>-->
     </ul>
-  <script src="scripts.js"></script> <!-- Enlace al archivo JavaScript externo -->
-    <!-- Pie de página -->
+    <!-- Script -->
+	
+	
+	 <!-- Pie de página -->
     <div class="footer">
         <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
         <div class="social-icons">
@@ -218,9 +447,65 @@
             </a>
         </div>
     </div>
+  	 <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuOptions');
+            menu.classList.toggle('visible');
+        }
 
-    
+        function showPage(pageNumber) {
+            const allImages = document.querySelectorAll(".gallery img");
+            allImages.forEach(img => {
+                img.style.display = img.getAttribute("data-page") == pageNumber ? "block" : "none";
+            });
+            document.querySelectorAll('.pagination li').forEach(li => li.classList.remove('active'));
+            document.querySelector(`.pagination li:nth-child(${pageNumber})`).classList.add('active');
+        }
 
-  
+        // Inicializar galería en la primera página
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(1);
+        });
+
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const prevImage = document.getElementById('prevImage');
+        const nextImage = document.getElementById('nextImage');
+        let currentIndex = 0;
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                updateModalImage();
+                modal.style.display = 'flex';
+            });
+        });
+
+        function updateModalImage() {
+            modalImage.src = images[currentIndex].src;
+        }
+
+        prevImage.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        });
+
+        nextImage.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateModalImage();
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -3,52 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="styles_general.css">
     <title>Arte Disponible y Encargos Personalizados - Juanjo Castellano</title>
-    <link rel="stylesheet" href="styles.css">
-   
-    
 </head>
 <body>
-  
-    <!-- Menú superior para dispositivos grandes -->
-    <header>
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="galeria.html"> Album Covers</a>
-            <a href="contacto.html" class="active">Contact</a>
-        </div>
-    </header>
-
-      <!-- Menú sándwich para dispositivos pequeños 
-    <div class="menu" onclick="toggleMenu()">☰</div>
+    <!-- Menú -->
+    <div class="menu" onclick="toggleMenu()">☰ </div>
     <div class="menu-options" id="menuOptions">
+        <a href="about.html">About</a>
+        <a href="galeria.html">Music Covers</a>
+        <a href="contacto.html">Contact</a>
+    </div>
+    <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html" >About</a>
-        <a href="galeria.html" >Album Covers</a>
+        <a href="galeria.html" >Music Covers</a>
         <a href="contacto.html" class="active">Contact</a>
-    </div>-->
+    </nav>
 
 
-
-    <!-- Encabezado principal de la página -->
+    <!-- Encabezado principal -->
     <h2 class="section-title">Contact</h2>
 
-    <!-- Contenedores de contenido por idioma -->
-    <!-- Contenido en Español -->
-    <div id="content-es" class="texto">
-	    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+    <div class="contenido">
+        <!-- Columna de la imagen
+        <div class="columna imagen">
+            <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil">
+        </div> -->
+
+        <!-- Contenido en Español (visible por defecto) -->
+        <div id="content-es" class="columna texto">
+            <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn active" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn"   aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
         <h2>Arte Disponible y Encargos</h2>
         <p>Descubre una selección de mis obras disponibles para la venta, creadas con pasión y dedicación para aquellos que buscan una pieza única y con significado...</p>
         <hr>
-        <div class="columnas">
-            <div class="columna">
+     
                 <h3>Solicita el Catálogo de Obras Disponibles</h3>
                 <p>Para ver el catálogo completo de obras actualmente disponibles, por favor envíame un correo a 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
@@ -56,24 +50,22 @@
                 <p>Si estás interesado en un encargo personalizado, envíame un correo con una breve descripción de tu idea o concepto.</p>
                 <p><strong>Correo electrónico</strong>: 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            
-            </div>
+   
         </div>
-    </div>
+ 
 
     <!-- Contenido en Inglés -->
-    <div id="content-en" class="texto hidden">
-	    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+        <div id="content-en" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn active" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
         <h2>Available Art and Commissions</h2>
         <p>Discover a selection of my available works for sale, created with passion and dedication for those who seek a unique and meaningful piece...</p>
         <hr>
-        <div class="columnas">
-            <div class="columna">
+      
                 <h3>Request the Catalog of Available Works</h3>
                 <p>To view the complete catalog of currently available works, please send me an email at 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
@@ -81,23 +73,21 @@
                 <p>If you're interested in a custom commission, please send me an email with a brief description of your idea or concept.</p>
                 <p><strong>Email</strong>: 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            </div>
-        </div>
+           
     </div>
 
-    <!-- Contenido en Francés -->
-    <div id="content-fr" class="texto hidden">
-	    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+     <!-- Contenido en Francés -->
+        <div id="content-fr" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn active"   aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
+            </div>
         <h2>Œuvres Disponibles et Commandes</h2>
         <p>Découvrez une sélection de mes œuvres disponibles à la vente, créées avec passion et dévouement pour ceux qui recherchent une pièce unique et significative...</p>
         <hr>
-        <div class="columnas">
-            <div class="columna">
+    
                 <h3>Demandez le Catalogue des Œuvres Disponibles</h3>
                 <p>Pour consulter le catalogue complet des œuvres actuellement disponibles, veuillez m'envoyer un e-mail à 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
@@ -105,23 +95,21 @@
                 <p>Si vous êtes intéressé par une commande personnalisée, veuillez m'envoyer un e-mail avec une brève description de votre idée ou concept.</p>
                 <p><strong>E-mail</strong>: 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            </div>
-        </div>
+           
     </div>
 
-    <!-- Contenido en Alemán -->
-    <div id="content-de" class="texto hidden">
-	    <div class="language-selector">
-        <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
-        <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
-        <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
-        <button onclick="changeLanguage('de')" class="lang-btn" aria-label="Deutsch">DE</button>
-    </div>
+   <!-- Contenido en Alemán -->
+        <div id="content-de" class="columna texto hidden">
+		 <div class="language-selector">
+                <button onclick="changeLanguage('es')" class="lang-btn" aria-label="Español">ES</button>
+                <button onclick="changeLanguage('en')" class="lang-btn" aria-label="English">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" aria-label="Français">FR</button>
+                <button onclick="changeLanguage('de')" class="lang-btn active"   aria-label="Deutsch">DE</button>
+            </div>
         <h2>Verfügbare Kunst und Auftragsarbeiten</h2>
         <p>Entdecken Sie eine Auswahl meiner zum Verkauf stehenden Werke, die mit Leidenschaft und Hingabe für diejenigen geschaffen wurden, die ein einzigartiges und bedeutungsvolles Stück suchen...</p>
         <hr>
-        <div class="columnas">
-            <div class="columna">
+     
                 <h3>Katalog der Verfügbaren Werke Anfordern</h3>
                 <p>Um den vollständigen Katalog der derzeit verfügbaren Werke einzusehen, senden Sie mir bitte eine E-Mail an 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
@@ -129,10 +117,14 @@
                 <p>Wenn Sie an einer individuellen Auftragsarbeit interessiert sind, senden Sie mir bitte eine E-Mail mit einer kurzen Beschreibung Ihrer Idee oder Ihres Konzepts.</p>
                 <p><strong>E-Mail</strong>: 
                    <a href="mailto:juanjo.castellano@gmail.com">juanjo.castellano@gmail.com</a></p>
-            </div>
+        <!-- Imagen rectangular -->
+          
         </div>
-    </div>
 
+	<div class="columna imagen">
+        <img src="juanjo.jpg" alt="Juanjo Castellano" class="foto-perfil2">
+    </div>
+</div>
    <!-- Pie de página -->
     <div class="footer">
         <p>&copy; 2024 Juanjo Castellano Artwork. Todos los derechos reservados.</p>
@@ -146,14 +138,14 @@
         </div>
     </div>
 
-    <!-- Scripts en línea (del archivo scripts.js) -->
+    <!-- Scripts en línea (del archivo scripts.js)-->
     <script>
         function changeLanguage(language) {
             const contents = ['content-es', 'content-en', 'content-fr', 'content-de'];
             contents.forEach(id => document.getElementById(id).classList.add('hidden'));
             document.getElementById(`content-${language}`).classList.remove('hidden');
         }
-    </script>
+    </script> 
 
 </body>
 </html>
