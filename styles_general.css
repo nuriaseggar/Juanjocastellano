@@ -325,6 +325,15 @@ main {
     border-radius: 5px;
     object-fit: cover;
 }
+/* Ajustes específicos para dispositivos pequeños */
+@media (max-width: 768px) {
+    .gallery img {
+        width: 100%; /* Usar todo el ancho disponible */
+        max-width: 150px; /* Ajustar tamaño máximo */
+        aspect-ratio: 1 / 1; /* Asegurar proporción cuadrada */
+        height: auto; /* Mantener flexibilidad */
+    }
+}
 
 .gallery img:hover {
     transform: scale(1.05);
